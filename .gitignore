@@ -4,7 +4,8 @@ students.csv
 # Output files
 *.csv
 *.json
-*.html
+# We don't want it to exclude all the template HTML files
+index.html
 *.pdf
 
 ###################################
