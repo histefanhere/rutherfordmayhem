@@ -1,0 +1,32 @@
+/* Stylings for the cards, edit this if you know what you're doing. */
+.card > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2px;
+}
+.card > .first_name {
+}
+.card > .find {
+}
+.card > .final_name {
+    font-weight: 800
+}
+.card > .rutherford {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.7em;
+    color: #a0a0a0;
+    font-family: 'Verdana';
+    padding: 2px;
+}
+.card > .help {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.6em;
+    color: #a0a0a0;
+    font-family: 'Verdana';
+    padding: 2px;
+}
