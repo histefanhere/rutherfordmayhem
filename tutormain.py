@@ -34,16 +34,6 @@ for s in students:
     except KeyError:
         tutor_classes[s['tutor']] = [s]
 
-
-# Output a csv file - why is this here? idk
-# o = "SourceID,Firstname,Lastname,Tutor,TargetID,TargetFirstname,TargetLastname\n"
-# for s in students:
-#     t = get_student(s['target'])
-#     o += f"{s['id']},{s['firstname']},{s['lastname']},{s['tutor']},{t['id']},{t['firstname']},{t['lastname']}\n"
-
-# with open('target_students.csv', 'w+') as f:
-#     f.write(o)
-
 # Start generating the output...
 for tutor, group in tutor_classes.items():
     output += f"<h3>{tutor}</h3><table width='100'>"

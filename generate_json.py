@@ -10,6 +10,7 @@ total_students = 0
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--no-sim', action='store_true', help="Actually creates the output files, not just run a simulaton.")
+parser.add_argument('--disable-first-tutor-filter', action='store_true', help="Disable first tutor filtering")
 parser.add_argument('--exclude-tutors', nargs='+', metavar="TUTORS", help="Tutor Classes to be excluded from Mayhem.")
 parser.add_argument('--exclude-students', nargs="+", metavar="STUDENT_IDS", help="Student IDs to be excluded from Mayhem.")
 args = parser.parse_args()
@@ -29,8 +30,11 @@ if args.exclude_students:
     exclude.extend(args.exclude_students)
     print("The program will exclude the following student{}: {}".format("s" if len(args.exclude_students) > 1 else "", ' '.join(args.exclude_students)))
 
+if args.disable_first_tutor_filter:
+    print("I've been given the disable first tutor flag. This means that a students first target could be in his very own tutor class, INSTANTLY taking them out of the game. You evil, evil man.")
+
 # Just gives the user an opportunity to read all the messages
-input("(Press enter to continue)")
+input("(Press enter to continue, or Ctrl+C to cancel)")
 
 # Read the students.csv file provided by staff and convert it into a JSON for easier manipulation
 with open('students.csv', mode='r') as csv_file:
@@ -62,7 +66,7 @@ attempts = 0
 while len(output_students) < total_students:
     attempts += 1
     i = random.randint(0, len(students)-1)
-    if output_students[-1]['tutor'] == students[i]['tutor']:
+    if not args.disable_first_tutor_filter and output_students[-1]['tutor'] == students[i]['tutor']:
         if attempts > 100:
             print("Okay so there is a VERY small chance that this program will never finish, and it looks like you got it! If that's the case, which it is, do Ctrl+C to kill the program and re-run it. :)")
             exit()
