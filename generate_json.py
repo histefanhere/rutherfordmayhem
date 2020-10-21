@@ -18,10 +18,10 @@ total_students = 0
 # Parse the provided command-line arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--no-sim', action='store_true', help="Actually creates the output files, not just run a simulaton.")
-parser.add_argument('--disable-first-tutor-filter', action='store_true', help="Disable first tutor filtering")
-parser.add_argument('--exclude-tutors', nargs='+', metavar="TUTORS", help="Tutor Classes to be excluded from Mayhem.")
-parser.add_argument('--exclude-students', nargs="+", metavar="STUDENT_IDS", help="Student IDs to be excluded from Mayhem.")
+parser.add_argument('--no-sim', action='store_true', help="actually creates the output files, not just run a simulaton")
+parser.add_argument('--disable-first-tutor-filter', action='store_true', help="disable first tutor filtering")
+parser.add_argument('--exclude-tutors', nargs='+', metavar="TUTORS", help="tutor classes to be excluded from Mayhem")
+parser.add_argument('--exclude-students', nargs="+", metavar="STUDENT_IDS", help="student IDs to be excluded from Mayhem")
 args = parser.parse_args()
 
 if args.no_sim:

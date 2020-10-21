@@ -15,6 +15,8 @@ import pdfkit
 # Parse the provided command-line arguments
 parser = argparse.ArgumentParser()
 
+parser.add_argument('-i', '--no-instructions', dest="no_instructions", action='store_true', help="dont print out instruction slips for each tutor")
+
 args = parser.parse_args()
 
 # Setting up the final html output
@@ -78,20 +80,14 @@ for tutor, group in tutor_classes.items():
 
     output += "</tr></table>"
 
-output += '<h3>Instructions:</h3><table width="100"><tr>'
-for i in range(50):
-    if i % 3 == 0 and i != 0:
-        output += '</tr><tr class="keep-together">'
-    output += '''
-        <td style="padding: 3px; font-size: 0.7rem">
-            Give these slips to your students, if a student isn't present keep their slip with you
-            (So if someone comes looking for this student you can give them their next slip).
-            Once found, a student must give all their collected slips to their finder.
-            <span style="font-weight: 600">Students must keep all slips with them throughout the week!</span>
-            Good luck! :)
-        </td>
-    '''
-output += '</tr></table>'
+# Don't include the instructions if we're told not too
+if not args.no_instructions:
+    output += '<h3>Instructions:</h3><table width="100"><tr>'
+    for i in range(50):
+        if i % 3 == 0 and i != 0:
+            output += '</tr><tr class="keep-together">'
+        output += get_file('files/instructions_template.html')
+    output += '</tr></table>'
 
 # Import all the styling into the output
 output += f"<style>{get_file('staticfiles/style.css')}</style>"

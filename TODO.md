@@ -6,8 +6,6 @@
 
 - explore other additional output formats - csv?
 
-- CLI option for generating or not generating the instruction slips?
-
 - very verbosly print out exlcusioned tutors or students
 
 - combine stylesheets
@@ -16,6 +14,7 @@
 
 # COMPLETED:
 
+- CLI option for generating or not generating the instruction slips?
 - Write very detailed README
     - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
 - (proper) script headers
