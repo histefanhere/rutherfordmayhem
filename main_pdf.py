@@ -1,7 +1,21 @@
+##############
+# FILENAME:    main_pdf.py
+# DESCRIPTION: Create a printable PDF from the processed JSON file.
+#              this should be the SECOND program you run.
+# AUTHOR:      Stefan Zdravkovic
+# DATE:        22/10/2020
+##############
+
 import json
 import random
+import argparse
 
 import pdfkit
+
+# Parse the provided command-line arguments
+parser = argparse.ArgumentParser()
+
+args = parser.parse_args()
 
 # Setting up the final html output
 output = "<html><body>"

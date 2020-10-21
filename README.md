@@ -23,6 +23,8 @@ And it goes without saying that you need `students.csv` - a CSV file of all the 
 
 ## Usage
 
+_Confused at any step in the process? All scripts have a help you can find by running `python3 filename.py --help`_
+
 Firstly we need to parse the `students.csv` input file and generate a `json` file that represents the chain of students in the game.
 
 ```bash
@@ -37,7 +39,7 @@ pythno3 generate_json.py --no-sim
 Now we need to generate the PDF, and for this there are a handful of template files that you should first configure to suit your needs, and you can find these in `files`. Now just run
 
 ```bash
-python3 tutormain.py
+python3 main_pdf.py
 ```
 
 and - that's it! If everything worked as it should, you should see an output `print.pdf` file with all the cards for all students in a printable format, all sorted by tutor class.

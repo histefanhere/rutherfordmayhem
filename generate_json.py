@@ -1,3 +1,12 @@
+##############
+# FILENAME:    generate_json.py
+# DESCRIPTION: generate a processed json file from the input CSV file.
+#              this should be the FIRST program you run.
+# AUTHOR:      Stefan Zdravkovic
+# DATE:        22/10/2020
+##############
+
+
 import csv
 import random
 import json

@@ -1,9 +1,5 @@
 TODO:
 
-- Write very detailed README
-    - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
-- (proper) script headers
-
 - What are exactly the dependencies I need??
 
 - Delete useless code / Put cool stuff into seperate scripts
@@ -20,6 +16,9 @@ TODO:
 
 COMPLETED:
 
+- Write very detailed README
+    - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+- (proper) script headers
 - CLI option for same-tutor exclusion
 - Does tutormain.py need to generate the target_students.csv?
 - Run tutormain.py, see error about wkhtmltopdf and install to laptop
