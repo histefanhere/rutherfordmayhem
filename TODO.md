@@ -1,4 +1,4 @@
-TODO:
+# TODO:
 
 - What are exactly the dependencies I need??
 
@@ -14,7 +14,7 @@ TODO:
 
 - errors
 
-COMPLETED:
+# COMPLETED:
 
 - Write very detailed README
     - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
@@ -30,7 +30,7 @@ COMPLETED:
 - Put all the HTML and CSS into an external file
     - Proper f-strings in html file
 
-TRASHED:
+# TRASHED:
 
 - Put everything into _one_ python script???
 - `output` folder so inputs and outputs and code don't get mixed around
