@@ -16,6 +16,8 @@ TODO:
 
 - combine stylesheets
 
+- errors
+
 COMPLETED:
 
 - CLI option for same-tutor exclusion
