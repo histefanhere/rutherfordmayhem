@@ -1,7 +1,5 @@
 # TODO:
 
-- What are exactly the dependencies I need??
-
 - Delete useless code / Put cool stuff into seperate scripts
 
 - explore other additional output formats - csv?
@@ -10,10 +8,9 @@
 
 - combine stylesheets
 
-- errors
-
 # COMPLETED:
 
+- errors
 - CLI option for generating or not generating the instruction slips?
 - Write very detailed README
     - https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
@@ -31,6 +28,7 @@
 
 # TRASHED:
 
+- What are exactly the dependencies I need??
 - Put everything into _one_ python script???
 - `output` folder so inputs and outputs and code don't get mixed around
 - Argparse for tutormain.py

@@ -7,10 +7,10 @@
 ##############
 
 
-import csv
-import random
-import json
 import argparse
+import csv
+import json
+import random
 
 students = []
 total_students = 0
@@ -18,8 +18,8 @@ total_students = 0
 # Parse the provided command-line arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--no-sim', action='store_true', help="actually creates the output files, not just run a simulaton")
-parser.add_argument('--disable-first-tutor-filter', action='store_true', help="disable first tutor filtering")
+parser.add_argument('-s', '--no-sim', action='store_true', help="actually creates the output files, not just run a simulaton")
+parser.add_argument('-t', '--disable-first-tutor-filter', action='store_true', help="disable first tutor filtering")
 parser.add_argument('--exclude-tutors', nargs='+', metavar="TUTORS", help="tutor classes to be excluded from Mayhem")
 parser.add_argument('--exclude-students', nargs="+", metavar="STUDENT_IDS", help="student IDs to be excluded from Mayhem")
 args = parser.parse_args()
@@ -51,7 +51,6 @@ with open('students.csv', mode='r') as csv_file:
 
     for row in csv_reader:
         if row['Tutor'] not in exclude and row['IDNumber'] not in exclude:
-        # if row['Tutor'] in ('13CH'):
             students.append({
                 'id': row['IDNumber'],
                 'firstname': row['Firstname'],
@@ -61,6 +60,7 @@ with open('students.csv', mode='r') as csv_file:
                 'type': row['Type']
             })
             total_students += 1
+
         else:
             print("Excluding {} {}, {}, {}".format(row['Firstname'], row['Lastname'], row['Tutor'], row['IDNumber']))
             excluded += 1

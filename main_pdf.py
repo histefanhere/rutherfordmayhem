@@ -6,9 +6,10 @@
 # DATE:        22/10/2020
 ##############
 
+
+import argparse
 import json
 import random
-import argparse
 
 import pdfkit
 
@@ -16,7 +17,6 @@ import pdfkit
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-i', '--no-instructions', dest="no_instructions", action='store_true', help="dont print out instruction slips for each tutor")
-
 args = parser.parse_args()
 
 # Setting up the final html output
@@ -34,13 +34,21 @@ def get_student(id):
 file_cache = {}
 def get_file(filename):
     if not filename in file_cache:
-        with open(filename, 'r') as file:
-            file_cache[filename] = file.read()
+        try:
+            with open(filename, 'r') as file:
+                file_cache[filename] = file.read()
+        except FileNotFoundError:
+            print(f"ERROR: I couldn't seem to find the file {filename}. Do you know where it is?")
+            exit()
     return file_cache[filename]
 
 # Get the students.json file that the generate_json.py file creates
-with open('students.json', 'r') as file:
-    students = json.load(file)
+try:
+    with open('students.json', 'r') as file:
+        students = json.load(file)
+except FileNotFoundError:
+    print("ERROR: where the heck is students.json!? please run generate_json.py first then run this script.")
+    exit()
 
 # And sort them by tutor class
 tutor_classes = {}
@@ -88,6 +96,8 @@ if not args.no_instructions:
             output += '</tr><tr class="keep-together">'
         output += get_file('files/instructions_template.html')
     output += '</tr></table>'
+else:
+    print("There will be NO instruction sheets")
 
 # Import all the styling into the output
 output += f"<style>{get_file('staticfiles/style.css')}</style>"
@@ -96,6 +106,8 @@ output += f"<style>{get_file('staticfiles/stylesheet.css')}</style>"
 # And finally, finish it up!
 output += '</body></html>'
 
+print("\nThe PDF is about to be generated. Any output from this point onwards is from the PDF generator")
+input("(Press space to continue)\n")
 
 with open('index.html', 'w+') as file:
     file.write(output)
@@ -106,30 +118,9 @@ options = {
     # These should all be on by default, but there's no harm in specifying them right?
     'images': None,
     'resolve-relative-links': None
-
-#    'quiet': None
 }
 
 # Create the HTML in pdf form
 # pdfkit does offer to create a pdf from string, however it wouldn't load images from local directories this way.
 # pdfkit.from_string(output, 'print.pdf', options = options)
 pdfkit.from_file('index.html', 'print.pdf', options = options)
-
-
-# Relics from a past life
-# from fpdf import FPDF, HTMLMixin
-# class HTML2PDF(FPDF, HTMLMixin):
-#     pass
-# pdf = HTML2PDF()
-# for i in range(100):
-#     pdf.add_page()
-# pdf.write_html(output)
-# pdf.output('html2pdf.pdf')
-
-# https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
-# https://wkhtmltopdf.org/downloads.html
-
-# https://www.google.com/search?hl=en&q=The%20switch%20%2D%2Dprint%2Dmedia%2Dtype%2C%20is%20not%20support%20using%20unpatched%20qt%2C%20and%20will%20be%20ignored.qt5ct%3A%20using%20qt5ct%20plugin
-# https://stackoverflow.com/questions/34479040/how-to-install-wkhtmltopdf-with-patched-qt
-# https://gist.github.com/tejastank/45b6eba13fb38e24110218e3ce50129b
-
