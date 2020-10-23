@@ -1,4 +1,5 @@
-/* Stylings for the cards, edit this if you know what you're doing. */
+/* These styles control the styling of the individual cards */
+/* Only change these if you kinda know what you're doing */
 .card > img {
     position: absolute;
     left: 0;
@@ -28,5 +29,46 @@
     font-size: 0.6em;
     color: #a0a0a0;
     font-family: 'Verdana';
+    padding: 2px;
+}
+
+
+/* ############################################### */
+/* ############################################### */
+
+
+/* This section is for the styling of the table and other assorted stylings */
+/* DO NOT CHANGE THESE */
+
+table, tr {
+    width: 100%;
+}
+table, td {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid black;
+    text-align: center;
+    font-family: 'Verdana';
+    padding: 17px 0 17px 0;
+    width: 33%;
+}
+@media print {
+  .new-page {
+    page-break-before: always;
+  }
+}
+@media print {
+    .keep-together {
+        page-break-inside: avoid;
+    }
+}
+.keep-together {
+    position: relative;
+}
+.keep-together > img {
+    position: absolute;
+    left: 0;
+    top: 0;
     padding: 2px;
 }

@@ -100,14 +100,13 @@ else:
     print("There will be NO instruction sheets")
 
 # Import all the styling into the output
-output += f"<style>{get_file('staticfiles/style.css')}</style>"
 output += f"<style>{get_file('staticfiles/stylesheet.css')}</style>"
 
 # And finally, finish it up!
 output += '</body></html>'
 
 print("\nThe PDF is about to be generated. Any output from this point onwards is from the PDF generator")
-input("(Press space to continue)\n")
+input("(Press enter to continue)\n")
 
 with open('index.html', 'w+') as file:
     file.write(output)

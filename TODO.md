@@ -6,10 +6,9 @@
 
 - very verbosly print out exlcusioned tutors or students
 
-- combine stylesheets
-
 # COMPLETED:
 
+- combine stylesheets
 - errors
 - CLI option for generating or not generating the instruction slips?
 - Write very detailed README
