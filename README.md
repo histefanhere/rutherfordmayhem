@@ -14,7 +14,7 @@ there's a couple things you need to get this setup - the most important is [Pyth
 
 You'll also need the `pdfkit` python package, which is a wrapper for `wkhtmltopdf`
 ```bash
-// Which command to use depends on your system
+# Which command to use depends on your system
 python3 -m pip install pdfkit
 python -m pip install pdfkit
 ```
@@ -28,10 +28,10 @@ _Confused at any step in the process? All scripts have a help you can find by ru
 Firstly we need to parse the `students.csv` input file and generate a `json` file that represents the chain of students in the game.
 
 ```bash
-// Observe the output is as expected
+# Observe the output is as expected
 python3 generate_json.py
-// Actually create the file
-pythno3 generate_json.py --no-sim
+# Actually create the file
+python3 generate_json.py --no-sim
 ```
 
 **IMPORTANT: SAVE THIS OUTPUT `students.json` FILE.** It represents the offical order of students in the game and who's targetting who - if you lose this file, and someone can't find their target, you'll have no idea who they should be looking for instead.
