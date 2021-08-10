@@ -83,7 +83,7 @@ for tutor, group in tutor_classes.items():
             "TUTOR_TARGET": target['tutor'],
             "YEAR_TARGET": target['year'],
         }
-        output += get_file("files/card_template.html").format(**data)
+        output += get_file("templates/card_template.html").format(**data)
         i += 1
 
     output += "</tr></table>"
@@ -91,10 +91,10 @@ for tutor, group in tutor_classes.items():
 # Don't include the instructions if we're told not too
 if not args.no_instructions:
     output += '<h3>Instructions:</h3><table width="100"><tr>'
-    for i in range(50):
+    for i in range(4):
         if i % 3 == 0 and i != 0:
             output += '</tr><tr class="keep-together">'
-        output += get_file('files/instructions_template.html')
+        output += get_file('templates/instructions_template.html')
     output += '</tr></table>'
 else:
     print("There will be NO instruction sheets")

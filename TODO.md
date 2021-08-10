@@ -6,6 +6,14 @@
 
 - very verbosly print out exlcusioned tutors or students
 
+- check if students.csv is empty
+
+- pretty print if students.csv is misssing any args
+
+- https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+
+- move stuff from README to GUIDE
+
 # COMPLETED:
 
 - combine stylesheets

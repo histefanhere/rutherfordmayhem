@@ -36,7 +36,7 @@ python3 generate_json.py --no-sim
 
 **IMPORTANT: SAVE THIS OUTPUT `students.json` FILE.** It represents the offical order of students in the game and who's targetting who - if you lose this file, and someone can't find their target, you'll have no idea who they should be looking for instead.
 
-Now we need to generate the PDF, and for this there are a handful of template files that you should first configure to suit your needs, and you can find these in `files`. Now just run
+Now we need to generate the PDF, and for this there are a handful of template files that you should first configure to suit your needs, and you can find these in `templates`. Now just run
 
 ```bash
 python3 main_pdf.py
