@@ -10,12 +10,12 @@
 
 - pretty print if students.csv is misssing any args
 
-- https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
-
-- move stuff from README to GUIDE
+- better USAGE in the guide
 
 # COMPLETED:
 
+- https://github.com/JazzCore/python-pdfkit/wiki/Installing-wkhtmltopdf
+- move stuff from README to GUIDE
 - combine stylesheets
 - errors
 - CLI option for generating or not generating the instruction slips?
